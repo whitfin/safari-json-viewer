@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <script type="text/javascript">
+        safari.application.addEventListener("message", function(e) {
+            if (e.name === "getSettings") {
+                e.target.page.dispatchMessage("setup", {
+                    settings: {
+                        use_tabs: safari.extension.settings.getItem("use_tabs"),
+                        space_indent: safari.extension.settings.getItem("space_indent")
+                    }
+                });
+            }
+        }, false);
+    </script>
+</head>
+</html>
